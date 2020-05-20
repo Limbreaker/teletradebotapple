@@ -118,7 +118,7 @@ def repeat_all_messages(message):
                                              parse_mode='html', reply_markup=markup)
                             bot.send_message(725423821, f'<b>{message.from_user.id} {message.from_user.username} отправил сообщение!</b> \n'
                                                         f'<b>Детали:</b> {name4} \n'
-                                                        f'<b>Cтоимость:</b> {MESSAGES[name][name2][name3][name4]}' ,parse_mode='html')
+                                                        f'<b>Cтоимость: </b> {MESSAGES[name][name2][name3][name4]}' ,parse_mode='html')
 
                         break
 
