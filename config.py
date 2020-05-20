@@ -1,0 +1,2 @@
+TOKEN = '991338685:AAGXo1D144783sccROnlJ07SuE4T8NL5mOM'
+APP_NAME = 'teletradebotapple'
