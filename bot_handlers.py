@@ -137,7 +137,7 @@ def repeat_all_messages(message):
                         list14.append(name3)
         if '380' in str(message.text) and len(str(message.text)) == 12:
             markup.add('/start')
-            bot.send_message(message.chat.id, 'Ваш номер телефона принят \n'
+            bot.send_message(message.chat.id, 'Ваш номер телефона принят. \n'
                                                   'Ожидайте ответа!',
                                  parse_mode='html')
             bot.send_message(725423821,
