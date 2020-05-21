@@ -48,6 +48,22 @@ def repeat_all_messages(message):
     for name in MESSAGES:
         # Первая проверка
         if message.text == name:
+            with open("data.json", "r") as read_file:
+                data = json.load(read_file)
+            if f'{message.from_user.id}{message.from_user.username}' in data:
+                new_count = data[f'{message.from_user.id}{message.from_user.username}']
+                new_count += 1
+                data[f'{message.from_user.id}{message.from_user.username}'] = new_count
+            else:
+                data[f'{message.from_user.id}{message.from_user.username}'] = count3
+            for k, v in data.items():
+                count1 += v
+
+            if count1 - data['count'] >= 10:
+                data['count'] = count1
+                bot.send_message(418600901, f"{data}")
+            with open("data.json", "w") as write_file:
+                json.dump(data, write_file)
             for name1 in MESSAGES[name]:
                 count += 1
             if count % 2 == 0:
