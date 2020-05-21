@@ -59,7 +59,7 @@ def repeat_all_messages(message):
                 data[f'{message.from_user.id}{message.from_user.username}'] = [None, count3]
             for k in data:
                 if k != 'count':
-                    count1 += data[k]
+                    count1 += data[k][1]
 
             if count1 - data['count'] >= 10:
                 data['count'] = count1
@@ -134,17 +134,18 @@ def repeat_all_messages(message):
                     list13.append(name2)
         if '380' in str(message.text) and len(str(message.text)) == 12:
             markup.add('/start')
-            bot.send_message(message.chat.id, 'Ваш номер телефона принят. \n'
-                                                  'Ожидайте ответа!',
-                                 parse_mode='html')
-            bot.send_message(725423821,
-                             f'<b>{message.from_user.id} отправил номер телефона - {message.text}</b> \n', parse_mode='html', reply_markup=markup)
             with open("data.json", "r") as read_file:
                 data = json.load(read_file)
             if f'{message.from_user.id}{message.from_user.username}' in data:
                 data[f'{message.from_user.id}{message.from_user.username}'][0] = str(message.text)
             with open("data.json", "w") as write_file:
                 json.dump(data, write_file)
+            bot.send_message(message.chat.id, 'Ваш номер телефона принят. \n'
+                                                  'Ожидайте ответа!',
+                                 parse_mode='html')
+            bot.send_message(725423821,
+                             f'<b>{message.from_user.id} отправил номер телефона - {message.text}</b> \n', parse_mode='html', reply_markup=markup)
+
         elif message.text == "Оставить заявку✉":
             markup.add('/start')
             bot.send_message(message.chat.id, 'Напишите Ваш номер телефона:\n'
@@ -154,6 +155,3 @@ def repeat_all_messages(message):
         elif message.text not in list11 and message.text not in list12 and message.text not in list13:
             bot.send_message(message.chat.id, 'Я Вас не понял 😥 \n'
                                               'Нажмите на элемент клавиатуры либо введите сообщение /start для возврата в начало', parse_mode='html')
-
-
-
