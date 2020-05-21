@@ -32,7 +32,7 @@ def send_welcome(message):
                     item2 = types.KeyboardButton(list1[1])
                     markup.add(item1, item2)
                     list1 = []
-    markup.add('Оставить заявку✉')
+    markup.add('Перезвоните мне✉')
     bot.send_message(message.chat.id, HELLO_MESSAGE + 'Для начала выберите модель:', parse_mode='html', reply_markup=markup)
 
 
@@ -82,7 +82,7 @@ def repeat_all_messages(message):
                         markup.add(list1[0], list1[1])
                         list1 = []
                 markup.add(list1[0], '/start')
-                markup.add('Оставить заявку✉')
+                markup.add('Передзвоните мне✉')
             bot.send_message(message.chat.id, 'Выберите количество памяти: ', reply_markup=markup)
         for name2 in MESSAGES[name]:
             # Вторая проверка
@@ -95,7 +95,7 @@ def repeat_all_messages(message):
                     bot.send_message(message.chat.id, f'<b>{k}</b>: {v}\n', parse_mode='html')
             for name3 in MESSAGES[name][name2]:
                 if message.text == name3:
-                    markup.add('Оставить заявку✉')
+                    markup.add('Передзвоните мне✉')
                     markup.add('/start')
                     if message.from_user.username is None:
                         bot.send_message(message.chat.id, f'<b>Cпасибо, Ваше сообщение получено!\n</b>'
@@ -146,7 +146,7 @@ def repeat_all_messages(message):
             bot.send_message(725423821,
                              f'<b>{message.from_user.id} отправил номер телефона - {message.text}</b> \n', parse_mode='html', reply_markup=markup)
 
-        elif message.text == "Оставить заявку✉":
+        elif message.text == "Передзвоните мне✉":
             markup.add('/start')
             bot.send_message(message.chat.id, 'Напишите Ваш номер телефона:\n'
                                               '(В формате 380ХХХХХХХХХ)',
