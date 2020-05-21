@@ -81,7 +81,7 @@ def repeat_all_messages(message):
                 else:
                     for name3 in MESSAGES[name][name2]:
                         list2.append(name3)
-                        if len(list1) == 2:
+                        if len(list2) == 2:
                             markup.add(list2[0], list2[1])
                             list2 = []
                     markup.add(list2[0], '/start')
