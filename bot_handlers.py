@@ -52,11 +52,11 @@ def repeat_all_messages(message):
             with open("data.json", "r") as read_file:
                 data = json.load(read_file)
             if f'{message.from_user.id}{message.from_user.username}' in data:
-                new_count = data[f'{message.from_user.id}{message.from_user.username}']
+                new_count = data[f'{message.from_user.id}{message.from_user.username}'][1]
                 new_count += 1
-                data[f'{message.from_user.id}{message.from_user.username}'] = new_count
+                data[f'{message.from_user.id}{message.from_user.username}'][1] = new_count
             else:
-                data[f'{message.from_user.id}{message.from_user.username}'] = count3
+                data[f'{message.from_user.id}{message.from_user.username}'] = [None, count3]
             for k in data:
                 if k != 'count':
                     count1 += data[k]
@@ -139,6 +139,12 @@ def repeat_all_messages(message):
                                  parse_mode='html')
             bot.send_message(725423821,
                              f'<b>{message.from_user.id} отправил номер телефона - {message.text}</b> \n', parse_mode='html', reply_markup=markup)
+            with open("data.json", "r") as read_file:
+                data = json.load(read_file)
+            if f'{message.from_user.id}{message.from_user.username}' in data:
+                data[f'{message.from_user.id}{message.from_user.username}'][0] = str(message.text)
+            with open("data.json", "w") as write_file:
+                json.dump(data, write_file)
         elif message.text == "Оставить заявку✉":
             markup.add('/start')
             bot.send_message(message.chat.id, 'Напишите Ваш номер телефона:\n'
