@@ -102,6 +102,8 @@ def repeat_all_messages(message):
                         markup.add('/start')
                         if message.from_user.username is None:
                             bot.send_message(message.chat.id, f'<b>Cпасибо, Ваше сообщение получено!\n</b>'
+                                                              f'<b>Детали:</b> {name4} \n'
+                                                              f'<b>Средняя стоимость:</b> {MESSAGES[name][name2][name3][name4]} \n'
                                                               f'Но мы заметили что у Вас нету логина @Telegram\n'
                                                               f'Введите Ваш номер телефона: (В формате 380ХХХХХХХХХ)',
                                              parse_mode='html', reply_markup=markup)
