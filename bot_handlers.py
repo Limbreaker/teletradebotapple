@@ -127,7 +127,7 @@ def repeat_all_messages(message):
                                               '(В формате 380ХХХХХХХХХ)',
                              parse_mode='html', reply_markup=markup)
 
-        elif message.text not in list11 and message.text not in list12 and message.text not in list13
+        elif message.text not in list11 and message.text not in list12 and message.text not in list13:
             bot.send_message(message.chat.id, 'Я Вас не понял 😥 \n'
                                               'Нажмите на элемент клавиатуры либо введите сообщение /start для возврата в начало', parse_mode='html')
 
