@@ -71,7 +71,7 @@ def repeat_all_messages(message):
             if message.text == name2:
                 for name3 in MESSAGES[name][name2]:
                     count2 += 1
-                if count % 2 == 0:
+                if count2 % 2 == 0:
                     for name3 in MESSAGES[name][name2]:
                         list2.append(name3)
                         if len(list2) == 2:
