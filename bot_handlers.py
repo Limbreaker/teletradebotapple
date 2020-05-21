@@ -58,7 +58,8 @@ def repeat_all_messages(message):
             else:
                 data[f'{message.from_user.id}{message.from_user.username}'] = count3
             for k, v in data.items():
-                count1 += v
+                if k != 'count':
+                    count1 += v
 
             if count1 - data['count'] >= 10:
                 data['count'] = count1
