@@ -74,7 +74,7 @@ def repeat_all_messages(message):
                     if len(list1) == 2:
                         markup.add(list1[0], list1[1])
                         list1 = []
-                markup.add('/start', 'Оставить заявку✉')
+                markup.add('/start', 'Передзвоните мне✉')
             else:
                 for name1 in MESSAGES[name]:
                     list1.append(name1)
@@ -89,7 +89,7 @@ def repeat_all_messages(message):
             if message.text == name2:
                 for name3 in MESSAGES[name][name2]:
                     markup.add(name3)
-                markup.add('/start', 'Оставить заявку✉')
+                markup.add('/start', 'Передзвоните мне✉')
                 bot.send_message(message.chat.id, 'Выберите состояние, в котором пребывает Ваш телефон: ', reply_markup=markup)
                 for k,v in STATE.items():
                     bot.send_message(message.chat.id, f'<b>{k}</b>: {v}\n', parse_mode='html')
