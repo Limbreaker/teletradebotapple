@@ -60,10 +60,7 @@ def repeat_all_messages(message):
             for k in data:
                 if k != 'count':
                     count1 += data[k][1]
-
-            if count1 - data['count'] >= 10:
-                data['count'] = count1
-                bot.send_message(725423821, f"{data}")
+            data['count'] = count1
             with open("data.json", "w") as write_file:
                 json.dump(data, write_file)
             for name1 in MESSAGES[name]:
