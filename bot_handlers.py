@@ -45,7 +45,7 @@ def repeat_all_messages(message):
     count = 0
     count1 = 0
     count2 = 0
-    count3 = 0
+    count3 = 1
     for name in MESSAGES:
         # Первая проверка
         if message.text == name:
