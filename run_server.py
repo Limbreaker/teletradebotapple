@@ -3,7 +3,7 @@ from telebot import types
 from config import *
 from bot_handlers import bot
 import os
-
+import json
 server = flask.Flask(__name__)
 
 
@@ -18,7 +18,9 @@ def get_message():
 def index():
     bot.remove_webhook()
     bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
-    return "Hello from Heroku!", 200
+        with open("data.json", "r") as read_file:
+        data = json.load(read_file)
+    return f"{data}", 200
 
 
 if __name__ == "__main__":
