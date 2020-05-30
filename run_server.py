@@ -18,7 +18,7 @@ def get_message():
 def index():
     bot.remove_webhook()
     bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
-        with open("data.json", "r") as read_file:
+    with open("data.json", "r") as read_file:
         data = json.load(read_file)
     return f"{data}", 200
 
